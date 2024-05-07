@@ -1,0 +1,45 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fabdul-k <fabdul-k@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/03/23 08:07:34 by fabdul-k          #+#    #+#             */
+/*   Updated: 2024/03/23 08:07:34 by fabdul-k         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "Animal.hpp"
+#include "Cat.hpp"
+#include <iostream>
+
+Cat::Cat():Animal()
+{
+	std::cout<<"Cat Constructor called"<<std::endl;
+	type = "Cat";
+}
+
+Cat::Cat(const Cat& copy):Animal()
+{
+	std::cout<<"Cat Copy Constructor called"<<std::endl;
+	this->type = copy.type;
+}
+
+Cat& Cat::operator=(const Cat& copy)
+{
+	std::cout<<"Cat Copy Assignment operator called"<<std::endl;
+	if (this != &copy)
+		this->type = copy.type;
+	return *this;
+}
+
+Cat::~Cat()
+{
+	std::cout<<"Cat Destructor called!"<<std::endl;
+}
+
+void Cat::makeSound() const
+{
+	std::cout<<"Cat makes MEOW sound!"<<std::endl;
+}
